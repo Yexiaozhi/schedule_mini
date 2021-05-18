@@ -2,19 +2,19 @@
 .zyz-schedule{
   background: white;
   box-shadow: 2rpx 4rpx 6rpx #dddddd;
-  padding: 0 12rpx 0 110rpx;
+  padding: 0 12rpx 0 100rpx;
   position: relative;
 }
 .hour{
   position: relative;
-  /* margin: 0 12rpx 0 110rpx; */
+  /* margin: 0 12rpx 0 100rpx; */
 }
 .hour-time{
   color: #CCCCCC;
   font-size: 10px;
   position: absolute;
   top: -14rpx;
-  left: -98rpx;
+  left: -88rpx;
 }
 .bottom-line{
   border-bottom: 1rpx solid #ddd;
@@ -22,14 +22,118 @@
 .schedule-cover{
   position: absolute;
   top: 0;
-  left: 110rpx;
+  left: 100rpx;
   right: 12rpx;
   bottom: 0;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+}
+.cover-level{
+  flex-grow: 1;
+  position: relative;
 }
 .schedule-event{
-  height: 1600rpx;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1200rpx;
   background: green;
+  opacity: 0.3;
+}
+.schedule-event1{
+  position: absolute;
+  top: 1300rpx;
+  width: 100%;
+  height: 400rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event2{
+  position: absolute;
+  top: 2000rpx;
+  width: 100%;
+  height: 400rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event3{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event4{
+  position: absolute;
+  top: 500rpx;
+  width: 100%;
+  height: 500rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event5{
+  position: absolute;
+  top: 1300rpx;
+  width: 100%;
+  height: 1000rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event6{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 600rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event7{
+  position: absolute;
+  top: 800rpx;
+  width: 100%;
+  height: 900rpx;
+  background: green;
+  opacity: 0.3;
+}
+.schedule-event8{
+  position: absolute;
+  top: 1800rpx;
+  width: 100%;
+  height: 800rpx;
+  background: green;
+  opacity: 0.3;
+}
+
+.schedule-event9{
+  position: absolute;
+  top: 2650rpx;
+  width: 100%;
+  height: 100rpx;
+  background: green;
+  opacity: 0.3;
+}
+.time-line{
+  left: 0;
+  position: absolute;
+  right: 12rpx;
+  display: flex;
+  align-items: center;
+}
+.now-time{
+  margin: 40rpx 0 40rpx 12rpx;
+  font-size: 10px;
+  background: white;
+  color: red;
+}
+.now-dot{
+  border-radius: 50%;
+  width: 10rpx;
+  height: 10rpx;
+  background: red;
+  margin-left: 6rpx;
+}
+.now-line{
+  flex-grow: 1;
+  height: 2rpx;
+  background: red;
 }

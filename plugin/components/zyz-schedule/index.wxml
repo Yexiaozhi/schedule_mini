@@ -1,11 +1,29 @@
 <!--plugin/components/zyz-schedule/index.wxml-->
 <view class="zyz-schedule">
-  <view class="hour {{index>0||index<24?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{hourHeight}}px;">
+  <view class="hour {{(index>=0&&index<23)?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{hourHeight-0.5}}px;">
     <text class="hour-time" wx:if="{{index>0}}">{{item}}</text>
   </view>
+  <view class="time-line" style="top:{{nowHeight-27}}px;">
+    <text class="now-time">{{nowTime}}</text>
+    <view class="now-dot"></view>
+    <view class="now-line"></view>
+  </view>
   <view class="schedule-cover">
-    <view class="schedule-event"></view>
-    <view class="schedule-event"></view>
-    <view class="schedule-event"></view>
+    <view class="cover-level">
+      <view class="schedule-event"></view>
+      <view class="schedule-event1"></view>
+      <view class="schedule-event2"></view>
+    </view>
+    <view class="cover-level">
+      <view class="schedule-event3"></view>
+      <view class="schedule-event4"></view>
+      <view class="schedule-event5"></view>
+    </view>
+    <view class="cover-level">
+      <view class="schedule-event6"></view>
+      <view class="schedule-event7"></view>
+      <view class="schedule-event8"></view>
+      <view class="schedule-event9"></view>
+    </view>
   </view>
 </view>

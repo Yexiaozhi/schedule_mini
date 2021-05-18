@@ -1,67 +1,72 @@
 // plugin/components/zyz-schedule/index.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Component({
+  properties: {
+    items: {
+      type: Array,
+      value: [],
+      observer(newVal, oldVal, changedPath) {
+        this.setData({
+          items: newVal
+        })
+      }
+    }
+  },
+
   data: {
-    hours:['凌晨0:00','凌晨1:00','凌晨2:00','凌晨3:00','上午4:00','上午5:00','上午6:00','上午7:00','上午8:00','上午9:00','上午10:00','上午11:00','下午12:00','下午1:00','下午2:00','下午3:00','下午4:00','下午5:00','下午6:00','下午7:00','下午8:00','晚上9:00','晚上10:00','晚上11:00'],
-    hourHeight:60,
+    hours: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+    hourHeight: 60,
+    nowTime: '0:00',
+    nowHeight: 0,
+    scheduleList: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  ready: function () {
+    const that = this
+    let now = new Date();
+    that.setData({
+      nowTime: now.getHours() + ':' + (now.getMinutes() < 10 ? ('0' + now.getMinutes()) : now.getMinutes()),
+      nowHeight: that.data.hourHeight * now.getHours() + that.data.hourHeight * now.getMinutes() / 60, //加0.5个底部线条高度
+      scheduleList: [{
+          startTime: new Date('2021-05-18 08:32'),
+          endTime: new Date('2021-05-18 09:40')
+        },
+        {
+          startTime: new Date('2021-05-18 08:59'),
+          endTime: new Date('2021-05-18 09:58')
+        },
+        {
+          startTime: new Date('2021-05-18 08:20'),
+          endTime: new Date('2021-05-18 10:40')
+        },
+        {
+          startTime: new Date('2021-05-18 09:10'),
+          endTime: new Date('2021-05-18 11:40')
+        },
+        {
+          startTime: new Date('2021-05-18 12:32'),
+          endTime: new Date('2021-05-18 13:40')
+        },
+        {
+          startTime: new Date('2021-05-18 05:21'),
+          endTime: new Date('2021-05-18 14:40')
+        },
+        {
+          startTime: new Date('2021-05-18 15:52'),
+          endTime: new Date('2021-05-18 17:30')
+        },
+        {
+          startTime: new Date('2021-05-18 14:11'),
+          endTime: new Date('2021-05-18 19:10')
+        },
+        {
+          startTime: new Date('2021-05-18 16:33'),
+          endTime: new Date('2021-05-18 23:40')
+        }
+      ]
+    })
+    console.log(that.data.scheduleList)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  methods: {
 
   }
 })
