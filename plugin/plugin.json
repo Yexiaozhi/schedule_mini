@@ -1,0 +1,10 @@
+{
+  "publicComponents": {
+    "hello-component": "components/hello-component",
+    "zyz-schedule": "components/zyz-schedule/index"
+  },
+  "pages": {
+    "hello-page": "pages/hello-page"
+  },
+  "main": "index.js"
+}

@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "plugins": {
+    "zyz-plugin": {
+      "version": "dev",
+      "provider": "wxf407663f1b4e50fd"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

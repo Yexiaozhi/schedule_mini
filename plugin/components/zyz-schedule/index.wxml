@@ -1,0 +1,5 @@
+<!--plugin/components/zyz-schedule/index.wxml-->
+<view class="schedule">
+  <view class="hour">
+  </view>
+</view>
