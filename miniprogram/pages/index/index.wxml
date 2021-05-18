@@ -5,4 +5,4 @@
 <button id="add" bindtap="addItem">Add item</button>
 
 <hello-list items="{{ items }}" />
-<zyz-schedule  />
+<zyz-schedule class="schedule"/>

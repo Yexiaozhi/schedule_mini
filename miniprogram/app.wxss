@@ -1,0 +1,42 @@
+/**app.wxss**/
+page {
+  background: #efeff4;
+  /* background: #c2c2c2; */
+  padding-bottom:1rpx;
+}
+button[type=primary] {
+  color: #FFFFFF !important;
+  background-color: #52C9C2 !important;
+}
+button[type=default] {
+  color: #52C9C2 !important;
+  background-color: white !important;
+}
+button[type=warn] {
+  color: #FFFFFF !important;
+  background-color: red !important;
+}
+.fix-Full-button {
+  bottom: 68rpx !important;
+}
+
+.fix-Full-container{
+  padding-bottom: 68rpx !important;
+}
+
+.fix-Full-button::after {
+  content: ' ';
+  position: fixed;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 68rpx !important;
+  width: 100%;
+  background: white;
+}
+
+.bottom-button{
+  width: 100% !important;
+  border-radius: 0;
+  z-index: 99;
+}

@@ -1,5 +1,11 @@
 <!--plugin/components/zyz-schedule/index.wxml-->
-<view class="schedule">
-  <view class="hour">
+<view class="zyz-schedule">
+  <view class="hour {{index>0||index<24?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{hourHeight}}px;">
+    <text class="hour-time" wx:if="{{index>0}}">{{item}}</text>
+  </view>
+  <view class="schedule-cover">
+    <view class="schedule-event"></view>
+    <view class="schedule-event"></view>
+    <view class="schedule-event"></view>
   </view>
 </view>

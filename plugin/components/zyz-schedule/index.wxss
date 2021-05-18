@@ -1,1 +1,35 @@
 /* plugin/components/zyz-schedule/index.wxss */
+.zyz-schedule{
+  background: white;
+  box-shadow: 2rpx 4rpx 6rpx #dddddd;
+  padding: 0 12rpx 0 110rpx;
+  position: relative;
+}
+.hour{
+  position: relative;
+  /* margin: 0 12rpx 0 110rpx; */
+}
+.hour-time{
+  color: #CCCCCC;
+  font-size: 10px;
+  position: absolute;
+  top: -14rpx;
+  left: -98rpx;
+}
+.bottom-line{
+  border-bottom: 1rpx solid #ddd;
+}
+.schedule-cover{
+  position: absolute;
+  top: 0;
+  left: 110rpx;
+  right: 12rpx;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.schedule-event{
+  height: 1600rpx;
+  background: green;
+}

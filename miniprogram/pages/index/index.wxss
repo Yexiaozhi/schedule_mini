@@ -10,3 +10,7 @@
 #add {
   margin: 1em;
 }
+
+.schedule{
+  margin: 20rpx 10rpx 100rpx 10rpx;
+}
