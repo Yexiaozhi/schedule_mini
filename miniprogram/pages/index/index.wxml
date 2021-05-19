@@ -1,8 +1,8 @@
-<navigator id="nav" url="plugin://hello-plugin/hello-page">
+<!-- <navigator id="nav" url="plugin://hello-plugin/hello-page">
   Go to Plugin page
 </navigator>
 
-<button id="add" bindtap="addItem">Add item</button>
+<button id="add" bindtap="addItem">Add item</button> -->
 
 <hello-list items="{{ items }}" />
-<zyz-schedule class="schedule"/>
+<zyz-schedule class="schedule" schedules="{{scheduleList}}" scheduleConfig="{{scheduleConfig}}" bind:scheduleClick="scheduleClick"/>

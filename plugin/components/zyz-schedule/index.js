@@ -2,12 +2,24 @@
 
 Component({
   properties: {
-    items: {
+    schedules: {
       type: Array,
       value: [],
       observer(newVal, oldVal, changedPath) {
         this.setData({
-          items: newVal
+          scheduleList: newVal
+        })
+      }
+    },
+    scheduleConfig : {
+      type : Object,
+      value : {
+        hourHeight:40,
+        eventBgColor:'#52C9C2'
+      },
+      observer(newVal, oldVal, changedPath) {
+        this.setData({
+          scheduleConfig: newVal
         })
       }
     }
@@ -15,7 +27,7 @@ Component({
 
   data: {
     hours: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-    hourHeight: 60,
+    scheduleConfig: {},
     nowTime: '0:00',
     nowTop: 0,
     scheduleList: [],
@@ -27,56 +39,23 @@ Component({
 
     that.setData({
       nowTime: now.getHours() + ':' + (now.getMinutes() < 10 ? ('0' + now.getMinutes()) : now.getMinutes()),
-      nowHeight: (now.getMinutes()>45)||(now.getMinutes()<15)? 50:20,
-      nowTop: that.data.hourHeight * now.getHours() + that.data.hourHeight * now.getMinutes() / 60, //加0.5个底部线条高度
-      scheduleList: [{
-          startTime: new Date('2021-05-18 08:32'),
-          endTime: new Date('2021-05-18 09:40')
-        },
-        {
-          startTime: new Date('2021-05-18 08:59'),
-          endTime: new Date('2021-05-18 09:58')
-        },
-        {
-          startTime: new Date('2021-05-18 08:20'),
-          endTime: new Date('2021-05-18 10:40')
-        },
-        {
-          startTime: new Date('2021-05-18 09:10'),
-          endTime: new Date('2021-05-18 11:40')
-        },
-        {
-          startTime: new Date('2021-05-18 12:32'),
-          endTime: new Date('2021-05-18 13:40')
-        },
-        {
-          startTime: new Date('2021-05-18 05:21'),
-          endTime: new Date('2021-05-18 14:40')
-        },
-        {
-          startTime: new Date('2021-05-18 15:52'),
-          endTime: new Date('2021-05-18 17:30')
-        },
-        {
-          startTime: new Date('2021-05-18 14:11'),
-          endTime: new Date('2021-05-18 19:10')
-        },
-        {
-          startTime: new Date('2021-05-18 16:33'),
-          endTime: new Date('2021-05-18 23:40')
-        }
-      ]
+      nowHeight: (now.getMinutes()>45)||(now.getMinutes()<15)? 30:15,
+      nowTop: that.data.scheduleConfig.hourHeight * now.getHours() + that.data.scheduleConfig.hourHeight * now.getMinutes() / 60 - 1, //加0.5个底部线条高度
+      
     })
     // that.dealScheduleList()
-    let testTime = {
-      startTime: new Date('2021-05-18 00:33'),
-      endTime: new Date('2021-05-18 00:40')
-    }
     // console.log(that.inTime(that.data.scheduleList[1],that.data.scheduleList[7]))
-    console.log(that.dealScheduleList())
+    that.setData({
+      dealScheduleList:that.dealSchedules()
+    })
+    console.log(that.data.dealScheduleList)
   },
   methods: {
-    dealScheduleList(){
+    scheduleClick: function scheduleClick(e) {
+      var item = e.target.dataset.item;
+      this.triggerEvent('scheduleClick', { item: item });
+  },
+    dealSchedules(){
       const that = this
       console.log(that.data.scheduleList)
       let scheduleList = that.data.scheduleList//定义局部变量数组（原数组）
@@ -84,6 +63,7 @@ Component({
       //循环，把日程列表一一放入新的二维数组
       for (let i = 0; i < scheduleList.length; i++) {// i为原日程数组索引
         let schedule = scheduleList[i]//定义原始时间范围元素
+        schedule = that.measureSchedule(schedule)
         let scheduleEventList = []//定义内层数组
         if (i==0) {//第一个，直接插入小数组
           scheduleEventList.push(schedule)
@@ -116,9 +96,9 @@ Component({
      * @param {基础时间对象} baseTime 
      */
     inTime(targetTime,baseTime){
-      if (targetTime.startTime.getTime()>baseTime.endTime.getTime()) {
+      if (new Date(targetTime.startTime).getTime()>new Date(baseTime.endTime).getTime()) {
         return false
-      }else if (targetTime.endTime.getTime()<baseTime.startTime.getTime()) {
+      }else if (new Date(targetTime.endTime).getTime()<new Date(baseTime.startTime).getTime()) {
         return false
       }else{
         return true
@@ -138,6 +118,19 @@ Component({
         }
       }
       return false
+    },
+    /**
+     * 
+     * @param {日程对象} schedule 
+     */
+    measureSchedule(schedule){
+      let that = this
+      let top = new Date(schedule.startTime).getHours()*that.data.scheduleConfig.hourHeight + new Date(schedule.startTime).getMinutes()*that.data.scheduleConfig.hourHeight/60
+      let endTop = new Date(schedule.endTime).getHours()*that.data.scheduleConfig.hourHeight + new Date(schedule.endTime).getMinutes()*that.data.scheduleConfig.hourHeight/60
+      let height = endTop-top
+      schedule.top = top
+      schedule.height = height
+      return schedule
     }
   }
 })

@@ -1,6 +1,6 @@
 <!--plugin/components/zyz-schedule/index.wxml-->
 <view class="zyz-schedule">
-  <view class="hour {{(index>=0&&index<23)?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{hourHeight-0.5}}px;">
+  <view class="hour {{(index>=0&&index<23)?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{scheduleConfig.hourHeight-0.5}}px;">
     <text class="hour-time" wx:if="{{index>0}}">{{item}}</text>
   </view>
   <view class="time-line" style="top:{{nowTop-nowHeight*0.5}}px;">
@@ -9,7 +9,17 @@
     <view class="now-line"></view>
   </view>
   <view class="schedule-cover">
-    <view class="cover-level">
+    <view class="cover-level" wx:for="{{dealScheduleList}}" wx:key="deal_schedule_list" wx:for-item="coverItem">
+      <view class="schedule-event" wx:for="{{coverItem}}" wx:key="schedule_cover" wx:for-item="eventItem" style="top:{{eventItem.top}}px; height:{{eventItem.height}}px;" data-item="{{eventItem}}" bindtap="scheduleClick">
+        <view class="event-left" style="height:{{eventItem.height-6}}px;border-right: 6rpx solid {{scheduleConfig.eventBgColor}};"></view>
+        <text class="event-title">{{eventItem.title}}</text>
+      </view>
+      <!-- <view class="schedule-event schedule-event1">
+        <view class="event-left"></view>
+        <text class="event-title">测试标题</text>
+      </view> -->
+    </view>
+    <!-- <view class="cover-level">
       <view class="schedule-event schedule-event0">
         <view class="event-left"></view>
         <text class="event-title">测试标题</text>
@@ -20,31 +30,7 @@
       <view class="schedule-event schedule-event2">
         <view class="event-left"></view>
       </view>
-    </view>
-    <view class="cover-level">
-      <view class="schedule-event schedule-event3">
-        <view class="event-left"></view>
-      </view>
-      <view class="schedule-event schedule-event4">
-        <view class="event-left"></view>
-      </view>
-      <view class="schedule-event schedule-event5">
-        <view class="event-left"></view>
-      </view>
-    </view>
-    <view class="cover-level">
-      <view class="schedule-event schedule-event6">
-        <view class="event-left"></view>
-      </view>
-      <view class="schedule-event schedule-event7">
-        <view class="event-left"></view>
-      </view>
-      <view class="schedule-event schedule-event8">
-        <view class="event-left"></view>
-      </view>
-      <view class="schedule-event schedule-event9">
-        <view class="event-left"></view>
-      </view>
-    </view>
+    </view> -->
+    
   </view>
 </view>
