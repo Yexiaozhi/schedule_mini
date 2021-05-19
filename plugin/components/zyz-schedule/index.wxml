@@ -3,27 +3,48 @@
   <view class="hour {{(index>=0&&index<23)?'bottom-line':''}}" wx:for="{{hours}}" wx:key="hours" style="height:{{hourHeight-0.5}}px;">
     <text class="hour-time" wx:if="{{index>0}}">{{item}}</text>
   </view>
-  <view class="time-line" style="top:{{nowHeight-27}}px;">
-    <text class="now-time">{{nowTime}}</text>
+  <view class="time-line" style="top:{{nowTop-nowHeight*0.5}}px;">
+    <text class="now-time" style="height:{{nowHeight}}px; line-height:{{nowHeight}}px;">{{nowTime}}</text>
     <view class="now-dot"></view>
     <view class="now-line"></view>
   </view>
   <view class="schedule-cover">
     <view class="cover-level">
-      <view class="schedule-event"></view>
-      <view class="schedule-event1"></view>
-      <view class="schedule-event2"></view>
+      <view class="schedule-event schedule-event0">
+        <view class="event-left"></view>
+        <text class="event-title">测试标题</text>
+      </view>
+      <view class="schedule-event schedule-event1">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event2">
+        <view class="event-left"></view>
+      </view>
     </view>
     <view class="cover-level">
-      <view class="schedule-event3"></view>
-      <view class="schedule-event4"></view>
-      <view class="schedule-event5"></view>
+      <view class="schedule-event schedule-event3">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event4">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event5">
+        <view class="event-left"></view>
+      </view>
     </view>
     <view class="cover-level">
-      <view class="schedule-event6"></view>
-      <view class="schedule-event7"></view>
-      <view class="schedule-event8"></view>
-      <view class="schedule-event9"></view>
+      <view class="schedule-event schedule-event6">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event7">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event8">
+        <view class="event-left"></view>
+      </view>
+      <view class="schedule-event schedule-event9">
+        <view class="event-left"></view>
+      </view>
     </view>
   </view>
 </view>

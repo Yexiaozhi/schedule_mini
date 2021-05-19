@@ -1,7 +1,7 @@
 /* plugin/components/zyz-schedule/index.wxss */
 .zyz-schedule{
   background: white;
-  box-shadow: 2rpx 4rpx 6rpx #dddddd;
+  box-shadow: 2rpx 4rpx 6rpx #DDDDDD;
   padding: 0 12rpx 0 100rpx;
   position: relative;
 }
@@ -10,19 +10,19 @@
   /* margin: 0 12rpx 0 100rpx; */
 }
 .hour-time{
-  color: #CCCCCC;
+  color: #BBBBBB;
   font-size: 10px;
   position: absolute;
   top: -14rpx;
-  left: -88rpx;
+  left: -76rpx;
 }
 .bottom-line{
-  border-bottom: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #DDDDDD;
 }
 .schedule-cover{
   position: absolute;
   top: 0;
-  left: 100rpx;
+  left: 88rpx;
   right: 12rpx;
   bottom: 0;
   display: flex;
@@ -30,87 +30,69 @@
 .cover-level{
   flex-grow: 1;
   position: relative;
+  margin-left: 12rpx;
 }
 .schedule-event{
-  position: absolute;
-  top: 0;
   width: 100%;
+  position: absolute;
+  border: 1rpx solid #DDDDDD;
+  border-radius: 0 6rpx 6rpx 0;
+}
+.schedule-event0{
+  top: 0;
   height: 1200rpx;
-  background: green;
-  opacity: 0.3;
+}
+.event-left{
+  margin-left: -6rpx;
+  border-right: 6rpx solid #52C9C2;
+  border-bottom: 6rpx solid transparent;
+  border-top: 6rpx solid transparent;
+  height: 388rpx;
+  width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.event-title{
+  margin: 10rpx;
+  font-size: 12px;
 }
 .schedule-event1{
-  position: absolute;
   top: 1300rpx;
-  width: 100%;
   height: 400rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event2{
-  position: absolute;
   top: 2000rpx;
-  width: 100%;
   height: 400rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event3{
-  position: absolute;
   top: 0;
-  width: 100%;
   height: 300rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event4{
-  position: absolute;
   top: 500rpx;
-  width: 100%;
   height: 500rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event5{
-  position: absolute;
   top: 1300rpx;
-  width: 100%;
   height: 1000rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event6{
-  position: absolute;
   top: 0;
-  width: 100%;
   height: 600rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event7{
-  position: absolute;
   top: 800rpx;
-  width: 100%;
   height: 900rpx;
-  background: green;
-  opacity: 0.3;
 }
 .schedule-event8{
-  position: absolute;
   top: 1800rpx;
-  width: 100%;
   height: 800rpx;
-  background: green;
-  opacity: 0.3;
 }
 
 .schedule-event9{
-  position: absolute;
   top: 2650rpx;
-  width: 100%;
   height: 100rpx;
-  background: green;
-  opacity: 0.3;
 }
 .time-line{
   left: 0;
@@ -120,7 +102,7 @@
   align-items: center;
 }
 .now-time{
-  margin: 40rpx 0 40rpx 12rpx;
+  padding-left: 24rpx;
   font-size: 10px;
   background: white;
   color: red;
