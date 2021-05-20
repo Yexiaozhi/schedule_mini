@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "hello-list": "plugin://zyz-plugin/hello-component",
     "zyz-schedule": "plugin://zyz-plugin/zyz-schedule"
   }
 }
