@@ -1,15 +1,26 @@
-# 插件文档标题
+# schedule_mini
 
-## 二级标题
+#### 介绍
+微信小程序。仿阿里钉钉日程中的时间区域控件 [https://gitee.com/chuangshixinchen/schedule_mini.git]
 
-### 三级标题
-
-这个文件用于书写插件文档，引用图片时必须以**相对路径**引用 ***doc*** 目录下的本地图片，不能使用网络图片或非 ***doc*** 目录下的图片。以下是相对路径的引用示例：
-
-![链接](./example.jpeg)
-
-使用编辑器下方的上传按钮可以上传插件文档，上传的内容包括 doc 目录下的 README.md 和图片。
+#### 软件架构
+基于微信小程序的插件
 
 
+#### 安装教程
 
 
+#### 使用说明
+
+1.  在需要使用的页面中的.json文件中，引入
+    {
+      "usingComponents": {
+        "zyz-schedule": "../zyz-plugin/zyz-schedule"
+      }
+    }
+2.  在.wxml文件中使用控件
+    <zyz-schedule class="schedule" schedules="{{scheduleList}}" scheduleConfig="{{scheduleConfig}}" bind:scheduleClick="scheduleClick"/>
+3.  配置参数和使用方式，请参考示例代码
+
+#### 图例
+![链接](./picture.jpg)

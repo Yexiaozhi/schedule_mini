@@ -22,3 +22,5 @@
     <zyz-schedule class="schedule" schedules="{{scheduleList}}" scheduleConfig="{{scheduleConfig}}" bind:scheduleClick="scheduleClick"/>
 3.  配置参数和使用方式，请参考示例代码
 
+#### 图例
+![链接](/doc/picture.jpg)
